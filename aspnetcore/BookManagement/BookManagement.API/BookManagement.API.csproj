@@ -17,4 +17,8 @@
       <Folder Include="Controllers\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\BookManagement.Application\BookManagement.Application.csproj" />
+    </ItemGroup>
+
 </Project>

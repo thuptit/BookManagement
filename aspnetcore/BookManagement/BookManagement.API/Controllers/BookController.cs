@@ -7,6 +7,10 @@ namespace BookManagement.API.Controllers
     [ApiController]
     public class BookController : ControllerBase
     {
-        
+        [HttpGet]
+        public async Task Get(int id)
+        {
+            
+        }
     }
 }
