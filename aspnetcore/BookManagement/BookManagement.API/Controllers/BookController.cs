@@ -5,7 +5,8 @@ namespace BookManagement.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class Book : ControllerBase
+    public class BookController : ControllerBase
     {
+        
     }
 }
