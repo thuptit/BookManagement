@@ -1,18 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookManagement.API", "BookManagement.API\BookManagement.API.csproj", "{87D7E965-9A2C-4232-BDB1-BC6D92AF4711}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookManagement.API", "BookManagement.API\BookManagement.API.csproj", "{87D7E965-9A2C-4232-BDB1-BC6D92AF4711}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{652970B3-E810-423C-8DB9-BDBD5A2B5C48}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{FDB0414E-8365-4FF6-A7FD-B83507517E81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookManagement.API.Test", "BookManagement.API.Test\BookManagement.API.Test.csproj", "{6E1B2029-6EE7-45E7-9165-BB186A03BCE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookManagement.API.Test", "BookManagement.API.Test\BookManagement.API.Test.csproj", "{6E1B2029-6EE7-45E7-9165-BB186A03BCE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookManagement.Application.Test", "BookManagement.Application.Test\BookManagement.Application.Test.csproj", "{13FCCE59-0F3D-4B16-AE0B-E46F0BCCC46F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookManagement.Application.Test", "BookManagement.Application.Test\BookManagement.Application.Test.csproj", "{13FCCE59-0F3D-4B16-AE0B-E46F0BCCC46F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookManagement.Application", "BookManagement.Application\BookManagement.Application.csproj", "{62B28D63-1B1C-47C5-B98C-D2E2278A0B08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookManagement.Application", "BookManagement.Application\BookManagement.Application.csproj", "{62B28D63-1B1C-47C5-B98C-D2E2278A0B08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookManagement.Domain", "BookManagement.Domain\BookManagement.Domain.csproj", "{DE2DDA8D-649B-4770-A73D-26555B5A989C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookManagement.Domain", "BookManagement.Domain\BookManagement.Domain.csproj", "{DE2DDA8D-649B-4770-A73D-26555B5A989C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookManagement.Shared", "BookManagement.Shared\BookManagement.Shared.csproj", "{10D39BF4-DD96-44FB-AB36-A634AB254F3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,6 +45,13 @@ Global
 		{DE2DDA8D-649B-4770-A73D-26555B5A989C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE2DDA8D-649B-4770-A73D-26555B5A989C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE2DDA8D-649B-4770-A73D-26555B5A989C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10D39BF4-DD96-44FB-AB36-A634AB254F3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10D39BF4-DD96-44FB-AB36-A634AB254F3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10D39BF4-DD96-44FB-AB36-A634AB254F3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10D39BF4-DD96-44FB-AB36-A634AB254F3B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{87D7E965-9A2C-4232-BDB1-BC6D92AF4711} = {652970B3-E810-423C-8DB9-BDBD5A2B5C48}
@@ -47,5 +59,9 @@ Global
 		{13FCCE59-0F3D-4B16-AE0B-E46F0BCCC46F} = {FDB0414E-8365-4FF6-A7FD-B83507517E81}
 		{62B28D63-1B1C-47C5-B98C-D2E2278A0B08} = {652970B3-E810-423C-8DB9-BDBD5A2B5C48}
 		{DE2DDA8D-649B-4770-A73D-26555B5A989C} = {652970B3-E810-423C-8DB9-BDBD5A2B5C48}
+		{10D39BF4-DD96-44FB-AB36-A634AB254F3B} = {652970B3-E810-423C-8DB9-BDBD5A2B5C48}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {26539896-696B-4C30-A4C5-27C9CAC4845F}
 	EndGlobalSection
 EndGlobal

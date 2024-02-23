@@ -6,12 +6,13 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\BookManagement.Domain\BookManagement.Domain.csproj" />
-    </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="MediatR" Version="12.2.0" />
+	</ItemGroup>
 
     <ItemGroup>
-      <Folder Include="BookHandlers\" />
+      <ProjectReference Include="..\BookManagement.Domain\BookManagement.Domain.csproj" />
+      <ProjectReference Include="..\BookManagement.Shared\BookManagement.Shared.csproj" />
     </ItemGroup>
 
 </Project>
