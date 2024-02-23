@@ -1,3 +1,5 @@
+using BookManagement.Application.Queries;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,10 +9,12 @@ namespace BookManagement.API.Controllers
     [ApiController]
     public class BookController : ControllerBase
     {
-        [HttpGet]
-        public async Task Get(int id)
+        private readonly IMediator _mediator;
+        public BookController(IMediator mediator)
         {
-            
+            _mediator = mediator;
         }
+        [HttpGet]
+        public async Task Get(int id) => await _mediator.Send(new GetBookDetailQuery(id));
     }
 }

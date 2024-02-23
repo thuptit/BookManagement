@@ -9,6 +9,6 @@ namespace BookManagement.Domain.Repositories.Category
 {
     public interface ICategoryRepository : IRepository<Entities.Category>
     {
-        Task<List<CategoryDropdownDto>> GetDropdownCategories();
+        Task<List<CategoryDropdownDto>> GetDropdownCategoriesAsync();
     }
 }

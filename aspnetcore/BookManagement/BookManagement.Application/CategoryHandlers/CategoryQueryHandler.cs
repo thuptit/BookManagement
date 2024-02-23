@@ -18,7 +18,7 @@ namespace BookManagement.Application.CategoryHandlers
         {
             try
             {
-                return new OkResponse(await _categoryRepository.GetDropdownCategories());
+                return new OkResponse(await _categoryRepository.GetDropdownCategoriesAsync());
             }
             catch (Exception ex)
             {
