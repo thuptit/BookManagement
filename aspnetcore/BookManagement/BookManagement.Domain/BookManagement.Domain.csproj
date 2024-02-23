@@ -22,10 +22,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Databases\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\BookManagement.Shared\BookManagement.Shared.csproj" />
     </ItemGroup>
 
