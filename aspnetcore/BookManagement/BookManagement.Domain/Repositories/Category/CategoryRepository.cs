@@ -14,7 +14,7 @@ namespace BookManagement.Domain.Repositories.Category
         {
         }
 
-        public async Task<List<CategoryDropdownDto>> GetDropdownCategories()
+        public async Task<List<CategoryDropdownDto>> GetDropdownCategoriesAsync()
         {
             return await GetAll().Select(x => new CategoryDropdownDto
             {

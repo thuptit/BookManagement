@@ -9,8 +9,8 @@ namespace BookManagement.Shared.Responses
 {
     public abstract class ServiceResponse
     {
-        public HttpStatusCode StatusCode { get; set; }
-        public object Result { get; set; }
+        public HttpStatusCode StatusCode { get; }
+        public object Result { get; }
         public ServiceResponse(HttpStatusCode statusCode, object result) 
         {
             this.StatusCode = statusCode;
