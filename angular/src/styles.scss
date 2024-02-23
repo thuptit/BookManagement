@@ -1,1 +1,80 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+// framework component styles
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+@use "@nebular/theme/styles/globals" as *;
+@forward "@nebular/theme/styles/theming";
+@use "@nebular/theme/styles/theming" as *;
+@use "@nebular/theme/styles/themes/default";
+@use "@nebular/theme/styles/themes/dark";
+@use "@nebular/theme/styles/themes/cosmic";
+@use "@nebular/theme/styles/themes/corporate";
+$nb-themes: nb-register-theme((), aquamarine, dark);
+$nb-themes: nb-register-theme((), aquamarine, cosmic);
+$nb-themes: nb-register-theme((), aquamarine, corporate);
+
+// install the framework styles
+@include nb-install() {
+  @include nb-theme-global();
+}
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$angular-admin-primary: mat.define-palette(mat.$indigo-palette);
+$angular-admin-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$angular-admin-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$angular-admin-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $angular-admin-primary,
+      accent: $angular-admin-accent,
+      warn: $angular-admin-warn,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($angular-admin-theme);
+
+@import "bootstrap/scss/bootstrap";
+@import "ngx-toastr/toastr";
+@import "ngx-toastr/toastr-bs5-alert";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.width-fit-content {
+  width: fit-content !important;
+}
+
+nb-select .select-button {
+  min-width: 6rem !important;
+}
+.nb-theme-default .cdk-overlay-container,
+.nb-theme-dark .cdk-overlay-container,
+.nb-theme-cosmic .cdk-overlay-container,
+.nb-theme-corporate .cdk-overlay-container {
+  z-index: 1040;
+}
