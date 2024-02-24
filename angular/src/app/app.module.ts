@@ -9,6 +9,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
         AppHeaderComponent,
         AppMenuBarComponent,
         NbEvaIconsModule,
-        HttpClientModule
+        HttpClientModule,
+        ToastrModule.forRoot()
     ],
     bootstrap: [AppComponent]
 })
