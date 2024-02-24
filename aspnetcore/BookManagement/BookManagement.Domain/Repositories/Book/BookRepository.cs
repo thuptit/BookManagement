@@ -14,7 +14,7 @@ namespace BookManagement.Domain.Repositories.Book
         {
         }
 
-        public async Task<PagedBase<GetBookAllPagingDto>> GetAllPagingAsync(string searchText, int pageIndex, int pageSize)
+        public async Task<PagedBase<GetBookAllPagingDto>> GetAllPagingAsync(string? searchText, int pageIndex, int pageSize)
         {
             var query = GetAll()
                 .Where(_ => string.IsNullOrEmpty(searchText) || _.Name.Contains(searchText) || _.Description.Contains(searchText))

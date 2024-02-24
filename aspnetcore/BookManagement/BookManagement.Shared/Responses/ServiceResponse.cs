@@ -17,6 +17,14 @@ namespace BookManagement.Shared.Responses
             this.Result = result;
         }
     }
-    public class OkResponse(object result) : ServiceResponse(HttpStatusCode.OK,result);
+
+    public class OkResponse: ServiceResponse
+    {
+        public OkResponse(object result) : base(HttpStatusCode.OK, result)
+        {
+        }
+        public OkResponse() : this(null){}
+    }
+
     public class FailResponse(string message) : ServiceResponse(HttpStatusCode.InternalServerError,message);
 }

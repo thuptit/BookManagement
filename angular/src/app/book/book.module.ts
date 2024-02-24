@@ -16,11 +16,15 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { ListBookComponent } from './list-book/list-book.component';
-import { NbIconModule } from '@nebular/theme';
+import { NbIconModule, NbInputModule } from '@nebular/theme';
 import { HttpClientModule } from '@angular/common/http';
+import { CreateOrEditBookComponent } from './create-or-edit-book/create-or-edit-book.component';
+import { BookComponent } from './book.component';
+import { DeleteBookComponent } from './delete-book/delete-book.component';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 @NgModule({
-  declarations: [ListBookComponent],
+  declarations: [ListBookComponent, CreateOrEditBookComponent, BookComponent, DeleteBookComponent],
   imports: [
     CommonModule,
     BookRoutingModule,
@@ -37,7 +41,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatExpansionModule,
     MatListModule,
     MatDividerModule,
-    NbIconModule
+    NbIconModule,
+    NbInputModule
   ]
 })
 export class BookModule { }
