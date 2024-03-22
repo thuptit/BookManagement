@@ -50,3 +50,7 @@
     </button>
   </mat-dialog-actions>
 </form>
+
+<ul>
+  <li *ngFor="let book of allBooks$ | async">{{ book.name }}</li>
+</ul>
