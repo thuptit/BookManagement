@@ -6,11 +6,15 @@ import { BookService } from '../../../services/book.service';
 import { BookModel } from '../book.model';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { Store, select } from '@ngrx/store';
+import { addBook, updateBook } from '../../../stores/actions/book.actions';
+import { Observable } from 'rxjs';
+import { selectAllBook } from '../../../stores/selectors/book.selectors';
 
 @Component({
   selector: 'app-create-or-edit-book',
   templateUrl: './create-or-edit-book.component.html',
-  styleUrl: './create-or-edit-book.component.scss'
+  styleUrl: './create-or-edit-book.component.scss',
 })
 export class CreateOrEditBookComponent implements OnInit {
   isCreateMode!: boolean;
@@ -18,22 +22,25 @@ export class CreateOrEditBookComponent implements OnInit {
   formGroup: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required]),
     description: new FormControl(''),
-    categoryId: new FormControl('')
+    categoryId: new FormControl(''),
   });
   isSaving: boolean = false;
+  allBooks$!: Observable<BookModel[]>;
 
-  constructor(public dialogRef: MatDialogRef<CreateOrEditBookComponent>,
+  constructor(
+    public dialogRef: MatDialogRef<CreateOrEditBookComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private categoryService: CategoryService,
     private bookService: BookService,
-    private toastService: ToastrService) {
-  }
+    private store: Store
+  ) {}
 
   ngOnInit(): void {
+    this.allBooks$ = this.store.pipe(select(selectAllBook));
+
     if (this.data.bookId === 0) {
       this.isCreateMode = true;
-    }
-    else {
+    } else {
       this.isCreateMode = false;
       this.getBook();
     }
@@ -54,30 +61,13 @@ export class CreateOrEditBookComponent implements OnInit {
       id: this.data.bookId,
       name: this.formGroup.controls['name'].value,
       description: this.formGroup.controls['description'].value,
-      categoryId: this.formGroup.controls['categoryId'].value
+      categoryId: this.formGroup.controls['categoryId'].value,
     } as BookModel;
 
     if (this.isCreateMode) {
-      this.bookService.create(book).subscribe(response => {
-        this.isSaving = response.isSaving;
-        if (response.statusCode !== 200) {
-          this.toastService.error(response.result);
-          return;
-        }
-        this.toastService.success("Created sucessfully");
-        this.dialogRef.close();
-      })
-    }
-    else {
-      this.bookService.update(book).subscribe(response => {
-        this.isSaving = response.isSaving;
-        if (response.statusCode !== 200) {
-          this.toastService.error(response.result);
-          return;
-        }
-        this.toastService.success("Updated sucessfully");
-        this.dialogRef.close();
-      })
+      this.store.dispatch(addBook({ book }));
+    } else {
+      this.store.dispatch(updateBook({ book }));
     }
   }
 
@@ -85,14 +75,13 @@ export class CreateOrEditBookComponent implements OnInit {
     this.bookService.getBook(this.data.bookId).subscribe((response) => {
       if (response?.statusCode !== 200) return;
       this.setForm(response.result);
-    })
+    });
   }
 
   getCategoryDropdown() {
     this.categoryService.getDropdownList().subscribe((response) => {
-      if (response?.statusCode !== 200)
-        return;
+      if (response?.statusCode !== 200) return;
       this.categories = response.result;
-    })
+    });
   }
 }
